@@ -1,0 +1,23 @@
+.container .row h3 { 
+    padding: 10px 0;
+}
+
+.container .row .list-group .selected-item {
+    background: #ccc;
+}
+
+.container .row .list-group .favorite-note {
+    font-size: 20px;
+}
+
+.container .row form { 
+    padding: 0 20px;
+}
+
+.container .row form .form-group .form-error {
+    color: red;
+}
+
+.container .row .new-note {
+    padding: 10px 0;
+}

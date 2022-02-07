@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Notepad App</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="list-group">
+        <div class="list-group-item note" [ngClass]="{ 'selected-item': selected && selected.id == note.id }" *ngFor="let note of notesList | async" (click)="selectNote(note)">
+          <a href="#" [ngStyle]="{ 'color': note.color }">
+            <h6 [ngClass]="{ 'favorite-note': selected && selected.id == note.id && selected.favorite }">{{ note.title | slice:0:30 }}</h6>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6" *ngIf="selected">
+      <div>
+        <form>
+          <div class="form-group">
+            <label>Title:
+              <input class="note-title form-control" name="title" [(ngModel)]="selected.title" required></label>
+            <div *ngIf="showError && !selected.title" class="form-error">Field is required</div>
+          </div>
+          <div class="form-group">
+            <label>Note:
+              <textarea class="note-body form-control" [(ngModel)]="selected.body" name="body"></textarea></label>
+          </div>
+          <div class="form-group">
+            <label>favorite:
+              <input type="checkbox" class="note-favorite" [(ngModel)]="selected.favorite" name="favorite"></label>
+          </div>
+          <div class="form-group">
+            <label>Color:
+              <input type="color" class="note-color" [(ngModel)]="selected.color" name="color"></label>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success note-save" (click)="saveNote(selected)">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <p class="new-note">Please select note or <a href="#" (click)="newNote()" class="note-new">click here to create new one</a></p>
+  </div>
+</div>
