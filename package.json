@@ -18,7 +18,9 @@
     "@angular/platform-browser-dynamic": "^11.2.4",
     "@angular/router": "^11.2.4",
     "bootstrap": "^4.4.1",
+    "puppeteer": "^13.2.0",
     "rxjs": "^6.5.5",
+    "testcafe": "^1.18.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },
